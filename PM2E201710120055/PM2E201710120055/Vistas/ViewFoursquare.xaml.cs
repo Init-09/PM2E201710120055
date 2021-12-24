@@ -47,7 +47,7 @@ namespace PM2E201710120055.Vistas
 
 
 
-                if ((sitioscercas[i].location.distance <= 9000) && (sitioscercas[i].location.distance >= 0))
+                if ((sitioscercas[i].location.distance <= 100) && (sitioscercas[i].location.distance >= 0))
                 {
 
                     int distance = sitioscercas[i].location.distance;

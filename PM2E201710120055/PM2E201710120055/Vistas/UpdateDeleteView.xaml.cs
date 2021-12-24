@@ -17,12 +17,14 @@ namespace PM2E201710120055.Vistas
     public partial class UpdateDeleteView : ContentPage
     {
         CancellationTokenSource cts;
-        public Int32 codigo;
-        string lati = "", longi = "", base64Val = "";
+        public int codigo;
+        string lati = "", longi = "", base64Val = "", descri = "";
 
         public UpdateDeleteView(MisSitios model)
         {
             InitializeComponent();
+            codigo = model.id;
+            descri = model.descripcion;
             lblId.Text = model.id.ToString();
             txtdescripLarga.Text = model.descripcion;
             imagen.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(model.fotografia))); ;
@@ -165,9 +167,23 @@ namespace PM2E201710120055.Vistas
             base.OnDisappearing();
         }
 
-        private void btnseliminar_Clicked(object sender, EventArgs e)
+        private async void btnseliminar_Clicked(object sender, EventArgs e)
         {
 
+            var model = new MisSitios
+            {
+                id = codigo,
+                latitud = lati,
+                longitud = longi,
+                descripcion = descri,
+                fotografia = base64Val,
+
+            };
+
+            if (await App.BaseDatos.EliminarSitios(model) != 0)
+                await DisplayAlert("Eliminar Persona", "Persona Eliminada Correctamente", "Ok");
+            else
+                await DisplayAlert("Eliminar Persona", "Error al Eliminar Persona!!", "Ok");
         }
 
         protected override void OnAppearing()
