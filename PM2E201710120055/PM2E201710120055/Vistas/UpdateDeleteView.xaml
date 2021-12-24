@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="White"
+             x:Class="PM2E201710120055.Vistas.UpdateDeleteView">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        <ScrollView >
+
+                <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10" >
+
+
+                    <Image x:Name="imagen" Source="https://www.segundamano.mx/img/nga/inmuebles.png" HorizontalOptions="Center" HeightRequest="150" />
+
+                    <Button  Text="Tomar foto" x:Name="btnfotocap" Clicked="btnfotocap_Clicked" 
+                            Margin="0,10,0,0" CornerRadius="190" BackgroundColor="CadetBlue" TextColor="White"/>
+
+                <Label FontSize="18" FontAttributes="Bold" VerticalOptions="Center"  >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="ID Usuario: "/>
+                            <Span x:Name="lblId"  Text="1"  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label FontSize="18" FontAttributes="Bold" VerticalOptions="Center"  >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Latitud: "/>
+                            <Span x:Name="lbllatitud"  Text="15.0"  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label FontSize="18" FontAttributes="Bold" VerticalOptions="Center"  >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Latitud: "/>
+                            <Span x:Name="lbllongitud"  Text="15.0"  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Editor IsTextPredictionEnabled="false" IsSpellCheckEnabled="false" x:Name="txtdescripLarga" Placeholder="Escriba la ubicacion" MaxLength="190" HeightRequest="100"   />
+
+                    <Button  Margin="0,10,0,0" CornerRadius="190" BackgroundColor="CadetBlue" TextColor="White"
+                    Text="Modificar Ubicacion" x:Name="btnsalnvar" Clicked="btnsalnvar_Clicked" />
+
+                    <Button  Margin="0,10,0,0" CornerRadius="190" BackgroundColor="CadetBlue" TextColor="White"
+                    Text="Eliminar Ubicacion" x:Name="btnseliminar" Clicked="btnseliminar_Clicked" />
+
+                </StackLayout>
+
+        </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
